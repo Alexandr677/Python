@@ -33,7 +33,7 @@ def binary_search(array, element, left, right):
     else:  # иначе в правой
         return binary_search(array, element, middle + 1, right)
 def typetrue(str):
-    str_norm = ['0','1','2','3','4','5','6','7','8','9',' ']
+    str_norm = ['0','1','2','3','4','5','6','7','8','9',' ','-']
     typetr = True
     for i in range(len(str)):
         if str[i] not in str_norm:
@@ -53,4 +53,8 @@ array = list(map(int, str.split()))
 print(f'Массив: {array}')
 array_sort = sortins(array)
 print(f'Массив после сортировки: {array_sort}')
-print(f'Индекс элемента: {binary_search(array, element, 0, len(array_sort))}')
+index_element = binary_search(array, element, 0, len(array_sort))
+if not index_element:
+    print(f'Введенное число {element} не соответствует заданному условию')
+else:
+    print(f'Индекс элемента: {index_element}')
